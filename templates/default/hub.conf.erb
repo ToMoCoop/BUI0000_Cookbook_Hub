@@ -1,0 +1,22 @@
+# hub - The JetBrains Hub site
+# THIS FILE IS MANAGED BY CHEF. ALL CHANGES WILL BE OVERWRITTEN!
+#
+description "JetBrains Hub"
+
+start on runlevel [2345]
+stop on runlevel [016]
+
+# Hub can take a while to shutdown
+kill timeout 30
+
+respawn
+
+script
+
+  CATALINA_OPTS="$CATALINA_OPTS <%= @memory_options %> -Djava.awt.headless=true"
+
+  export CATALINA_OPTS
+
+  exec start-stop-daemon --start -c root --exec "<%= @shell_script_path %>" -- run
+
+end script
