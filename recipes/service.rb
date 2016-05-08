@@ -14,7 +14,7 @@ memory_options = node['cookbook_hub']['hub']['memory_options']
 # Calculate some variables
 hub_archive_name = "Hub-#{hub_version}.zip"
 hub_archive_path = "#{archive_directory}/#{hub_archive_name}"
-install_dir = "#{install_root_dir}/#{hub_version}"
+install_dir = "#{install_root_dir}/#{hub_version}/hub-ring-bundle-#{hub_version}"
 current_dir = "#{install_root_dir}/current"
 shell_script_path = "#{install_dir}/bin/hub.sh"
 
